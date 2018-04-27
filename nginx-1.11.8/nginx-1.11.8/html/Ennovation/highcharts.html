@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>Highcharts Tutorial</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+   <script src="https://code.highcharts.com/highcharts.js"></script>  
+</head>
+<body>
+<input type="text" value="NIKE AIR LEBRON" id="name"><input id="clickMe" type="button" value="Check Sentiment" onclick="doFunction();" />
+
+<div id="container"></div>
+<script language="JavaScript">
+
+
+
+var formData = new FormData();
+
+var res={};
+
+ function doFunction() { 
+var data=document.getElementById("name").value;
+   console.log(data);
+   formData.append("text", data);
+$.ajax({
+  url         : '/api/sentiment/',
+  data        : formData,
+  processData : false,
+  contentType : false,
+  type: 'POST'
+}).done(function(data){
+res=data;
+  console.log(data);
+
+   var chart = {
+       plotBackgroundColor: null,
+       plotBorderWidth: null,
+       plotShadow: false
+   };
+   var title = {
+      text: res.label   
+   };      
+   var tooltip = {
+      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+   };
+    //var colors = Highcharts.getOptions().colors;
+  Highcharts.setOptions({
+ colors: ['#008000', '#FF0000', '#0000FF', '#64E572', '#64E572', '#FF9655', '#FFF263', '#6AF9C4']
+});
+   var plotOptions = {
+      pie: {
+         allowPointSelect: true,
+         cursor: 'pointer',
+         dataLabels: {
+            enabled: false           
+         },
+         showInLegend: true
+      }
+   };
+   // res.probability.pos
+   var series= [{
+      type: 'pie',
+      name: 'user views',
+      data: [
+         ['Positive',  res.probability.pos],
+         ['Negative',       res.probability.neg],
+         ['neutral',  res.probability.neutral ]
+      ]
+   }];     
+      
+   var json = {};   
+   json.chart = chart; 
+   json.title = title;     
+   json.tooltip = tooltip;  
+   json.series = series;
+   json.plotOptions = plotOptions;
+   $('#container').highcharts(json); 
+});
+
+ 
+};
+   
+
+
+
+$(document).ready(function() {  
+/*formData.append("text", "NIKE AIR LEBRON");
+// Nike air max
+//NIKE AIR KD
+//Nike Dunk SB,Nike Air Foamposite Pro,NIKE AIR LEBRON
+
+$.ajax({
+    url         : '/api/sentiment/',
+    data        : formData,
+    processData : false,
+    contentType : false,
+    type: 'POST'
+}).done(function(data){
+res=data;
+    console.log(data);
+});*/
+doFunction();
+});
+  
+</script>
+</body>
+</html>
+
+ 
+
+ 

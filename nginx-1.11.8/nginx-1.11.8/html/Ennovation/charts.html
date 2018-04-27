@@ -1,0 +1,83 @@
+<html>
+  <head>
+   <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap-3.3.7-dist/css/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Negative',     11],
+          ['Positive',      2],
+          ['Neutral',  2]
+          
+        ]);
+
+        var options = {
+          title: 'User Reviews'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+
+var fd = new FormData(document.querySelector("form"));
+fd.append("CustomField", "This is some extra data");
+$.ajax({
+  url: '/api/sentiment/',
+  type: "POST",
+  data: fd,
+  processData: false,  // tell jQuery not to process the data
+  contentType: false   // tell jQuery not to set contentType
+});
+      }
+
+     
+
+       
+
+   
+    </script>
+
+    <script>
+    (function($){
+        function processForm( e ){
+            $.ajax({
+                url: '/api/sentiment/',
+                dataType: 'text',
+                type: 'post',
+                contentType: 'application/x-www-form-urlencoded',
+                data: $(this).serialize(),
+                success: function( data, textStatus, jQxhr ){
+                    $('#response pre').html( data );
+                },
+                error: function( jqXhr, textStatus, errorThrown ){
+                    console.log( errorThrown );
+                }
+            });
+
+            e.preventDefault();
+        }
+
+        $('#my-form').submit( processForm );
+    })(jQuery);
+</script>
+  </head>
+  <body>
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+   
+   <form id="my-form">
+    <input type="text" id="first-name" name="first-name" placeholder="First Name" />
+    <input type="text" id="last-name" name="last-name" placeholder="Last Name" />
+
+    <button type="submit">Submit</button>
+</form>
+  </body>
+</html>

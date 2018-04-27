@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="DMN in the Cloud | provided by Camunda">
+    <link rel="icon" href="../../favicon.ico">
+    <title>US Visa Waiver Program | Example for DMN in the Cloud</title>
+    <link href="./css/styles.css" rel="stylesheet">
+    <link href="./prism.css" rel="stylesheet">
+	 <script src="app.js"></script>
+  </head>
+
+  <body>
+    <div cam-widget-header>
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand"
+             href="../../index.html"
+             title="dmn.camunda.cloud">
+            <span class="brand-logo"></span>
+            <span class="brand-name ng-binding">dmn.camunda.cloud</span>
+          </a>
+        </div>
+
+        <div ng-transclude>
+          <ul>
+            <li><a href="./../../get-started/index.html">Get Started</a></li>
+            <li><a href="./../../view/index.html">View</a></li>
+            <li><a href="./../../edit/index.html">Edit</a></li>
+            <li class="active"><a href="./../../examples/index.html">Examples</a></li>
+            <li><a href="./../../swagger-ui">REST API Docs</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="jumbotron">
+      <div class="container">
+        <h1>US Visa Waiver Program</h1>
+        <p>Example with JQuery</p>
+        <p>
+          <strong>Warning:</strong> This example application is <strong>not</strong> suited for providing reliable information about US travel restrictions.
+        </p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row sections-wrapper">
+        <section class="country-check col-md-6">
+          <header>
+            <h1>Your Citizenship</h1>
+          </header>
+
+          <div class="section-content">
+            <form>
+              <div class="input-group country-selection">
+                <select id="country" class="form-control" >
+                  <option>Afghanistan</option>
+                  <option>Albania</option>
+                  <option>Algeria</option>
+                  <option>Andorra</option>
+                  <option>Angola</option>
+                  <option>Anguilla</option>
+                  <option>Antigua &amp; Barbuda</option>
+                  <option>Argentina</option>
+                  <option>Armenia</option>
+                  <option>Aruba</option>
+                  <option>Australia</option>
+                  <option>Austria</option>
+                  <option>Azerbaijan</option>
+                  <option>Bahamas</option>
+                  <option>Bahrain</option>
+                  <option>Bangladesh</option>
+                  <option>Barbados</option>
+                  <option>Belarus</option>
+                  <option>Belgium</option>
+                  <option>Belize</option>
+                  <option>Benin</option>
+                  <option>Bermuda</option>
+                  <option>Bhutan</option>
+                  <option>Bolivia</option>
+                  <option>Bosnia &amp; Herzegovina</option>
+                  <option>Botswana</option>
+                  <option>Brazil</option>
+                  <option>British Virgin Islands</option>
+                  <option>Brunei</option>
+                  <option>Bulgaria</option>
+                  <option>Burkina Faso</option>
+                  <option>Burundi</option>
+                  <option>Cambodia</option>
+                  <option>Cameroon</option>
+                  <option>Canada</option>
+                  <option>Cape Verde</option>
+                  <option>Cayman Islands</option>
+                  <option>Chad</option>
+                  <option>Chile</option>
+                  <option>China</option>
+                  <option>Colombia</option>
+                  <option>Congo</option>
+                  <option>Cook Islands</option>
+                  <option>Costa Rica</option>
+                  <option>Cote D Ivoire</option>
+                  <option>Croatia</option>
+                  <option>Cruise Ship</option>
+                  <option>Cuba</option>
+                  <option>Cyprus</option>
+                  <option>Czech Republic</option>
+                  <option>Denmark</option>
+                  <option>Djibouti</option>
+                  <option>Dominica</option>
+                  <option>Dominican Republic</option>
+                  <option>Ecuador</option>
+                  <option>Egypt</option>
+                  <option>El Salvador</option>
+                  <option>Equatorial Guinea</option>
+                  <option>Estonia</option>
+                  <option>Ethiopia</option>
+                  <option>Falkland Islands</option>
+                  <option>Faroe Islands</option>
+                  <option>Fiji</option>
+                  <option>Finland</option>
+                  <option>France</option>
+                  <option>French Polynesia</option>
+                  <option>French West Indies</option>
+                  <option>Gabon</option>
+                  <option>Gambia</option>
+                  <option>Georgia</option>
+                  <option selected>Germany</option>
+                  <option>Ghana</option>
+                  <option>Gibraltar</option>
+                  <option>Greece</option>
+                  <option>Greenland</option>
+                  <option>Grenada</option>
+                  <option>Guam</option>
+                  <option>Guatemala</option>
+                  <option>Guernsey</option>
+                  <option>Guinea</option>
+                  <option>Guinea Bissau</option>
+                  <option>Guyana</option>
+                  <option>Haiti</option>
+                  <option>Honduras</option>
+                  <option>Hong Kong</option>
+                  <option>Hungary</option>
+                  <option>Iceland</option>
+                  <option>India</option>
+                  <option>Indonesia</option>
+                  <option>Iran</option>
+                  <option>Iraq</option>
+                  <option>Ireland</option>
+                  <option>Isle of Man</option>
+                  <option>Israel</option>
+                  <option>Italy</option>
+                  <option>Jamaica</option>
+                  <option>Japan</option>
+                  <option>Jersey</option>
+                  <option>Jordan</option>
+                  <option>Kazakhstan</option>
+                  <option>Kenya</option>
+                  <option>Kuwait</option>
+                  <option>Kyrgyz Republic</option>
+                  <option>Laos</option>
+                  <option>Latvia</option>
+                  <option>Lebanon</option>
+                  <option>Lesotho</option>
+                  <option>Liberia</option>
+                  <option>Libya</option>
+                  <option>Liechtenstein</option>
+                  <option>Lithuania</option>
+                  <option>Luxembourg</option>
+                  <option>Macau</option>
+                  <option>Macedonia</option>
+                  <option>Madagascar</option>
+                  <option>Malawi</option>
+                  <option>Malaysia</option>
+                  <option>Maldives</option>
+                  <option>Mali</option>
+                  <option>Malta</option>
+                  <option>Mauritania</option>
+                  <option>Mauritius</option>
+                  <option>Mexico</option>
+                  <option>Moldova</option>
+                  <option>Monaco</option>
+                  <option>Mongolia</option>
+                  <option>Montenegro</option>
+                  <option>Montserrat</option>
+                  <option>Morocco</option>
+                  <option>Mozambique</option>
+                  <option>Namibia</option>
+                  <option>Nepal</option>
+                  <option>Netherlands</option>
+                  <option>Netherlands Antilles</option>
+                  <option>New Caledonia</option>
+                  <option>New Zealand</option>
+                  <option>Nicaragua</option>
+                  <option>Niger</option>
+                  <option>Nigeria</option>
+                  <option>Norway</option>
+                  <option>Oman</option>
+                  <option>Pakistan</option>
+                  <option>Palestine</option>
+                  <option>Panama</option>
+                  <option>Papua New Guinea</option>
+                  <option>Paraguay</option>
+                  <option>Peru</option>
+                  <option>Philippines</option>
+                  <option>Poland</option>
+                  <option>Portugal</option>
+                  <option>Puerto Rico</option>
+                  <option>Qatar</option>
+                  <option>Reunion</option>
+                  <option>Romania</option>
+                  <option>Russia</option>
+                  <option>Rwanda</option>
+                  <option>Saint Pierre &amp; Miquelon</option>
+                  <option>Samoa</option>
+                  <option>San Marino</option>
+                  <option>Satellite</option>
+                  <option>Saudi Arabia</option>
+                  <option>Senegal</option>
+                  <option>Serbia</option>
+                  <option>Seychelles</option>
+                  <option>Sierra Leone</option>
+                  <option>Singapore</option>
+                  <option>Slovakia</option>
+                  <option>Slovenia</option>
+                  <option>South Africa</option>
+                  <option>South Korea</option>
+                  <option>Spain</option>
+                  <option>Sri Lanka</option>
+                  <option>St Kitts &amp; Nevis</option>
+                  <option>St Lucia</option>
+                  <option>St Vincent</option>
+                  <option>St. Lucia</option>
+                  <option>Sudan</option>
+                  <option>Suriname</option>
+                  <option>Swaziland</option>
+                  <option>Sweden</option>
+                  <option>Switzerland</option>
+                  <option>Syria</option>
+                  <option>Taiwan</option>
+                  <option>Tajikistan</option>
+                  <option>Tanzania</option>
+                  <option>Thailand</option>
+                  <option>Timor L Este</option>
+                  <option>Togo</option>
+                  <option>Tonga</option>
+                  <option>Trinidad &amp; Tobago</option>
+                  <option>Tunisia</option>
+                  <option>Turkey</option>
+                  <option>Turkmenistan</option>
+                  <option>Turks &amp; Caicos</option>
+                  <option>Uganda</option>
+                  <option>Ukraine</option>
+                  <option>United Arab Emirates</option>
+                  <option>United Kingdom</option>
+                  <option>Uruguay</option>
+                  <option>Uzbekistan</option>
+                  <option>Venezuela</option>
+                  <option>Vietnam</option>
+                  <option>Virgin Islands (US)</option>
+                  <option>Yemen</option>
+                  <option>Zambia</option>
+                  <option>Zimbabwe</option>
+                </select>
+                <span class="input-group-btn">
+                  <button type="button"
+                          id="checkCountry"
+                          class="btn btn-primary">Check</button>
+                </span>
+              </div>
+            </form>
+
+            <p><div id="countryMessage" class="alert" style="display:none"><h4>Result</h4><span></span></div></p>
+
+            <h3>DMN Decision Table</h3>
+            <a href="../../view/index.html?key=example-visa">View Table</a>
+
+            <div class="visaJson" style="display:none">
+              <h3>Request Body</h3>
+              <pre><code class="language-json request"></code></pre>
+              <h3>Response Body</h3>
+              <pre><code class="language-json response"></code></pre>
+            </div>
+
+            <h3>How does it work</h3>
+            <pre><code class="language-javascript">$('#checkCountry').click(function() {
+
+      var data = JSON.stringify(
+        {
+          "country" :
+            {
+              "type" : "string",
+              "value" : $('#country').val()
+            }
+        }
+      );
+
+      $('.visaJson .language-json .request').text(data);
+      $('.visaJson').show();
+
+      $.ajax
+        ({
+            type: 'POST',
+            url: apiUrl + 'decision/example-visa',
+            data: data,
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+              $('.visaJson .language-json .response').text(JSON.stringify(data, null, 2));
+
+              if (data.outputs.vwp.values[0] === true) {
+                // No Visa, but ESTA required
+                $('#estaContainer').show();
+                $('#countryMessage').attr('class', 'alert alert-warning');
+              } else {
+                $('#estaContainer').hide();
+                $('#countryMessage').attr('class', 'alert alert-danger');
+              }
+
+              $('#countryMessage span').text(data.outputs.comment.values[0]);
+              $('#countryMessage').show();
+            }
+        });
+});</code></pre>
+          </div>
+        </section>
+
+
+
+        <section class="esta-check col-md-6"
+                 id="estaContainer"
+                 style="display:none">
+          <header>
+            <h1>Travel on ESTA</h1>
+          </header>
+
+          <div class="section-content">
+            <form>
+              <div class="form-group">
+                <label for="stay">How many days will you stay in the US?</label>
+                <input id="stay" type="number" class="form-control" value="10">
+              </div>
+
+              <div class="form-group">
+                <label for="enter">How will you enter the US?</label>
+                <select id="enter" class="form-control">
+                  <option value="air">By Air Plane</option>
+                  <option value="sea">By Ship</option>
+                  <option value="overland">Over Land</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="certainCountry">Did you visit any of these countries on or after March 1, 2011: Iran, Iraq, Libya, Somalia, Sudan, Syria, Yemen?</label>
+                <select id="certainCountry" class="form-control">
+                  <option value="false">No</option>
+                  <option value="true">Yes</option>
+                </select>
+              </div>
+
+              <div class="form-group text-right">
+                <button type="button"
+                        id="checkEsta"
+                        class="btn btn-primary">Check</button>
+              </div>
+            </form>
+
+            <p><div id="estaMessage" class="alert alert-info" style="display:none"><h4>Result</h4><span></span></div></p>
+
+            <h3>DMN Decision Table</h3>
+            <a href="../../view/index.html?key=example-esta">View Table</a>
+
+            <div class="estaJson" style="display:none">
+              <h3>Request Body</h3>
+              <pre><code class="language-json request"></code></pre>
+              <h3>Response Body</h3>
+              <pre><code class="language-json response"></code></pre>
+            </div>
+
+            <h3>How does it work</h3>
+            <pre><code class="language-javascript">$('#checkEsta').click(function() {
+
+    var data = JSON.stringify(
+      {
+        "stay" :
+          {
+            "type" : "integer",
+            "value" : Number($('#stay').val())
+          },
+        "enter" :
+          {
+            "type" : "string",
+            "value" : $('#enter').val()
+          },
+        "certainCountry" :
+          {
+            "type" : "boolean",
+            "value" : $('#certainCountry').val() === 'true'
+          }
+      },
+      false, 2
+     );
+
+    $('.estaJson .language-json .request').text(data);
+    $('.estaJson').show();
+
+    $.ajax
+      ({
+        type: 'POST',
+        url: apiUrl + 'decision/example-esta',
+        data: data,
+        dataType: 'json',
+        contentType: 'application/json; charset=utf-8',
+        success: function (data) {
+         $('.estaJson .language-json .response').text(JSON.stringify(data, null, 2));
+
+         if (data.outputs.estaSufficient.values[0] === true) {
+            $('#estaMessage').attr('class', 'alert alert-success');
+         } else {
+            $('#estaMessage').attr('class', 'alert alert-danger');
+         }
+
+         $('#estaMessage span').text(data.outputs.comment.values[0]);
+         $('#estaMessage').show();
+        }
+      });
+});</code></pre>
+          </div>
+        </section>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

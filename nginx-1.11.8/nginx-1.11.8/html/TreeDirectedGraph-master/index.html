@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Related Entities</title>
+        <link type="text/css" rel="stylesheet" href="stylesheets/style.css"/>
+        <link type="text/css" rel="stylesheet" href="stylesheets/bootstrap.min.css"/>
+        <link type="text/css" rel="stylesheet" href="./javascripts/thirdparty/contextMenu/jquery.contextMenu.css"/>
+        <link type="text/css" rel="stylesheet" href="./stylesheets/google_font_icons.css"/>
+    </head>
+    <body>
+        <div ng-controller="RelatedItemsController as relatedItemsCtrl">
+            <div related-items-graph config="relatedItemsCtrl.config" class="related-item"></div>
+            <div id="ConfigButton" ng-click="relatedItemsCtrl.fnShowConfigDialog()" class="setting-bar">
+                <i class="material-icons">settings</i>
+            </div>
+            <div ng-show="relatedItemsCtrl.showConfigDialog" ng-include="'./templates/configDialog.html'"></div>
+        </div>
+        <script src="./javascripts/thirdparty/angular.min.js"></script>
+        <script src="./javascripts/thirdparty/jquery.min.js"></script>
+        <script src="./javascripts/thirdparty/d3.v3.min.js"></script>
+        <script src="./javascripts/thirdparty/d3.tip.v0.6.3.js"></script>
+        <script src="./javascripts/thirdparty/contextMenu/jquery.contextMenu.js"></script>
+        <script src="./javascripts/thirdparty/contextMenu/jquery.ui.position.js"></script>
+        <script src="./javascripts/thirdparty/bootstrap.min.js"></script>
+        <script src="./app.js"></script>
+        <script src="./javascripts/services/RelatedItemsService.js"></script>
+        <script src="./javascripts/graphUtility.js"></script>
+        <script src="./javascripts/edgeUtility.js"></script>
+        <script src="./javascripts/nodeUtility.js"></script>
+        <script src="./javascripts/layout.js"></script>
+        <script src="./javascripts/directives/relatedItemsGraph.js"></script>
+        <script src="./javascripts/controllers/RelatedItemsController.js"></script>
+    </body>
+</html>

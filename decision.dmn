@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="decision" name="twittersurvey">
+    <decisionTable id="decisionTable">
+      <input id="input1" label="Number of participants">
+        <inputExpression id="inputExpression1" typeRef="integer">        <text>participants</text>
+</inputExpression>
+      </input>
+      <input id="InputClause_0hmkumv" label="How much are  for black percent">
+        <inputExpression id="LiteralExpression_0m7s53h" typeRef="integer">        <text>percent</text>
+</inputExpression>
+      </input>
+      <output id="output1" label="Product Color Prio" name="Prio" typeRef="string" />
+      <rule id="row-684765712-1">
+        <inputEntry id="UnaryTests_10ehxi6">        <text><![CDATA[< 1000]]></text>
+</inputEntry>
+        <inputEntry id="UnaryTests_0ndy9tj">        <text>[0..100]</text>
+</inputEntry>
+        <outputEntry id="LiteralExpression_0l6zo2h">        <text><![CDATA["1/1"]]></text>
+</outputEntry>
+      </rule>
+      <rule id="row-684765712-2">
+        <inputEntry id="UnaryTests_128urvu">        <text>[1000..10000[</text>
+</inputEntry>
+        <inputEntry id="UnaryTests_1aiyoto">        <text><![CDATA[> 69]]></text>
+</inputEntry>
+        <outputEntry id="LiteralExpression_0wi6aa2">        <text><![CDATA["3/2"]]></text>
+</outputEntry>
+      </rule>
+      <rule id="row-684765712-3">
+        <inputEntry id="UnaryTests_1ddvirh">        <text><![CDATA[> 10000]]></text>
+</inputEntry>
+        <inputEntry id="UnaryTests_1mpdhxt">        <text><![CDATA[> 69]]></text>
+</inputEntry>
+        <outputEntry id="LiteralExpression_184hkvx">        <text><![CDATA["3/1"]]></text>
+</outputEntry>
+      </rule>
+      <rule id="row-837062645-1">
+        <inputEntry id="UnaryTests_06jhani">        <text>[1000..10000[</text>
+</inputEntry>
+        <inputEntry id="UnaryTests_0plsoaa">        <text><![CDATA[<= 69]]></text>
+</inputEntry>
+        <outputEntry id="LiteralExpression_0xe3h6h">        <text><![CDATA["1/1"]]></text>
+</outputEntry>
+      </rule>
+      <rule id="row-837062645-2">
+        <inputEntry id="UnaryTests_1dfi7fl">        <text><![CDATA[> 10000]]></text>
+</inputEntry>
+        <inputEntry id="UnaryTests_16hadiv">        <text><![CDATA[<= 69]]></text>
+</inputEntry>
+        <outputEntry id="LiteralExpression_1lfznwp">        <text><![CDATA["1/1"]]></text>
+</outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
